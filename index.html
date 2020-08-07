@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Weather Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="row">
+            <div class="container-fluid">
+                <div class="jumbotron col-sm-12">
+                    <div class="container">
+                        <h1 class="display-5">Weather Dashboard</h1>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <div class="row">
+            <div class="input-group mb-3 col-md-3">
+                <input id="city-searchbox" type="text" class="form-control" placeholder="search for a city">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">search</button>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-9">
+                <div class="card">
+                    <div id="general-weather" class="card-body">
+                        <h2 id="city-title" class="card-title"></h2>
+                        <p id="temp" class="card-text"></p>
+                        <p id="humidity" class="card-text"></p>
+                        <p id="wind-speed" class="card-text"></p>
+                        <p id="uv-index" class="card-text"></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <ul id="city-list" class="list-group">
+                    <!-- cities prepended to list here -->
+                </ul>
+            </div>
+            <div id="days-forecast" class="col-md-9">
+                <h1>5-day Forecast</h1>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
