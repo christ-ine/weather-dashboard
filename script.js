@@ -1,4 +1,5 @@
 
+
 function searchWeather(city) {
     var queryURL1 = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=d0b1325148a3c9a481dc74749bc4b4df"
     console.log(queryURL1);
@@ -21,10 +22,21 @@ function searchWeather(city) {
             mainCardBody.addClass("card-body");
             $("#general-weather").append(mainCardBody);
 
+            var mainIconSource = "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
+            var mainIcon = $("<img>").attr("src", mainIconSource );
+
+
         //Get city name and disply
         var cityName = $("<h2>").text(response.name + " " + "(" + mainLocalDate + ")");
         cityName.addClass("card-title");
         mainCardBody.append(cityName);
+
+        var mainIconSource = "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
+        var mainIcon = $("<img>").attr("src", mainIconSource );
+        mainCardBody.append(mainIcon);
+
+
+        
 
         //get temperature and display
         console.log(response.main.temp);
@@ -50,7 +62,7 @@ function searchWeather(city) {
         var longitude = (response.coord.lon);
 
         var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=d0b1325148a3c9a481dc74749bc4b4df&lat=" + latitude + "&lon=" + longitude
-
+        
         $.ajax({
             url: queryURL2,
             method: "GET"
@@ -125,21 +137,35 @@ function searchWeather(city) {
             
         })
     })
+
+    $(".past-city").on("click", function (event){
+        event.preventDefault();
+        
+        var clickCity = event.target.innerText;
+        console.log(clickCity);
+        searchWeather(clickCity);
+
+        
+    })
+
+    $('#city-searchbox').val('');
 }
 
 
 
 
-
-$("button").on("click", function (event) {
+$("#search-button").on("click", function (event) {
     event.preventDefault();
     var inputCity = $('#city-searchbox').val().trim();
-    var $listItem = $('<li>');
-    $listItem.addClass("list-group-item");
+    var $listItem = $('<button>');
+    $listItem.addClass("list-group-item list-group-item-action past-city");
+    $listItem.attr("type", "button");
     $listItem.text(inputCity);
     $("#city-list").prepend($listItem);
+    
 
     searchWeather(inputCity);
     // fiveDayForecast(inputCity);
 }
 )
+
