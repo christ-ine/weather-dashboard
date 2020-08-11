@@ -104,7 +104,7 @@ function searchWeather(city) {
             var localDate = cardDateDt.toLocaleDateString("en-US");
 
             var forecastCard = $("<div>");
-            forecastCard.addClass("card text-white bg-info mb-3");
+            forecastCard.addClass("card text-white bg-info mb-3 col-md-2");
             forecastCard.css("max-width", "18rem");
             $("#days-forecast").append(forecastCard);
 

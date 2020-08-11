@@ -1,0 +1,9 @@
+.card {
+    display: inline-flex;
+    margin: 20px;
+    
+}
+
+#search-button {
+    max-height: 40px;
+  }
