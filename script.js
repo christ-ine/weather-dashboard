@@ -3,7 +3,7 @@
 function searchWeather(city) {
     var queryURL1 = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=d0b1325148a3c9a481dc74749bc4b4df"
     console.log(queryURL1);
-    var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=d0b1325148a3c9a481dc74749bc4b4df"
+    var queryURL3 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=d0b1325148a3c9a481dc74749bc4b4df"
         console.log(queryURL3);
 
 
@@ -61,7 +61,7 @@ function searchWeather(city) {
         var latitude = (response.coord.lat);
         var longitude = (response.coord.lon);
 
-        var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=d0b1325148a3c9a481dc74749bc4b4df&lat=" + latitude + "&lon=" + longitude
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?appid=d0b1325148a3c9a481dc74749bc4b4df&lat=" + latitude + "&lon=" + longitude;
         console.log(queryURL2);
         $.ajax({
             url: queryURL2,
