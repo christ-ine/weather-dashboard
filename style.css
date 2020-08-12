@@ -1,6 +1,6 @@
 .card {
-    display: inline-flex;
-    margin: 20px;
+    display: inline-block;
+    margin: 10px;
     
 }
 

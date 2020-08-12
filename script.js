@@ -62,7 +62,7 @@ function searchWeather(city) {
         var longitude = (response.coord.lon);
 
         var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=d0b1325148a3c9a481dc74749bc4b4df&lat=" + latitude + "&lon=" + longitude
-        
+        console.log(queryURL2);
         $.ajax({
             url: queryURL2,
             method: "GET"
@@ -72,8 +72,19 @@ function searchWeather(city) {
 
             //get uv index and display
             console.log(response.value);
-            var uvIndex = $("<p>").text("UV Index: " + response.value);
+            var uvIndex = $("<p>");
+            uvIndex.text("UV Index: " + response.value);
+            
+            if (response.value < 3) {
+                uvIndex.css("background-color", "green");
+            } else if (response.value > 6) {
+                uvIndex.css("background-color", "red");
+            } else {
+                uvIndex.css("background-color", "yellow");
+            }
+
             $(mainCardBody).append(uvIndex);
+
 
         })
 
@@ -104,7 +115,7 @@ function searchWeather(city) {
             var localDate = cardDateDt.toLocaleDateString("en-US");
 
             var forecastCard = $("<div>");
-            forecastCard.addClass("card text-white bg-info mb-3 col-md-2");
+            forecastCard.addClass("card text-white bg-info mb-3 day-card");
             forecastCard.css("max-width", "18rem");
             $("#days-forecast").append(forecastCard);
 
