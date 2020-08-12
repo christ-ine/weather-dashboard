@@ -160,6 +160,8 @@ function searchWeather(city) {
     })
 
     $('#city-searchbox').val('');
+
+    localStorage.saveCityTemp =$()
 }
 
 
