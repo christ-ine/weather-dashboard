@@ -149,6 +149,7 @@ function searchWeather(city) {
         })
     })
 
+    //event that regenerates data from search history
     $(".past-city").on("click", function (event){
         event.preventDefault();
         
@@ -159,13 +160,14 @@ function searchWeather(city) {
         
     })
 
+    // clears searchbox after searching
     $('#city-searchbox').val('');
 
-    localStorage.saveCityTemp =$()
+    
 }
 
 
-
+//user search function
 
 $("#search-button").on("click", function (event) {
     event.preventDefault();
@@ -178,7 +180,7 @@ $("#search-button").on("click", function (event) {
     
 
     searchWeather(inputCity);
-    // fiveDayForecast(inputCity);
+    
 }
 )
 
